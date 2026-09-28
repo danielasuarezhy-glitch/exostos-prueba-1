@@ -49,218 +49,228 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // =========================================================
+// =========================================================
 // COMPARADOR ANTES / DESPUÉS
+// VERSIÓN CORREGIDA
 // =========================================================
 
 const comparadores = document.querySelectorAll(".comparador");
 
 comparadores.forEach((comparador) => {
 
-    const antes =
-        comparador.querySelector(".comparador-antes");
+    const antes = comparador.querySelector(".comparador-antes");
+    const linea = comparador.querySelector(".comparador-linea");
+    const imagenAntes = comparador.querySelector(".comparador-antes img");
 
-    const linea =
-        comparador.querySelector(".comparador-linea");
+    if (!antes || !linea || !imagenAntes) {
+        return;
+    }
 
-    const imagenAntes =
-        comparador.querySelector(".comparador-antes img");
+    // =====================================================
+    // ASEGURAR QUE LA IMAGEN ANTES TENGA EL MISMO TAMAÑO
+    // QUE TODO EL COMPARADOR
+    // =====================================================
 
-    if (!antes || !linea || !imagenAntes) return;
+    function ajustarImagenAntes() {
 
+        const rect = comparador.getBoundingClientRect();
 
-    function ajustarImagen() {
+        if (!rect.width || !rect.height) {
+            return;
+        }
 
-        const ancho =
-            comparador.getBoundingClientRect().width;
+        antes.style.width = "100%";
+        antes.style.height = "100%";
 
-        const alto =
-            comparador.getBoundingClientRect().height;
-
-        imagenAntes.style.width = ancho + "px";
-        imagenAntes.style.height = alto + "px";
+        imagenAntes.style.position = "absolute";
+        imagenAntes.style.left = "0";
+        imagenAntes.style.top = "0";
+        imagenAntes.style.width = "100%";
+        imagenAntes.style.height = "100%";
+        imagenAntes.style.maxWidth = "none";
+        imagenAntes.style.objectFit = "cover";
+        imagenAntes.style.objectPosition = "center";
+        imagenAntes.style.display = "block";
     }
 
 
+    // =====================================================
+    // MOVER COMPARADOR
+    // =====================================================
+
     function moverComparador(posicionX) {
 
-        const rect =
-            comparador.getBoundingClientRect();
+        const rect = comparador.getBoundingClientRect();
+
+        if (!rect.width) {
+            return;
+        }
 
         let porcentaje =
             ((posicionX - rect.left) / rect.width) * 100;
 
-        porcentaje =
-            Math.max(2, Math.min(98, porcentaje));
+        porcentaje = Math.max(
+            2,
+            Math.min(98, porcentaje)
+        );
 
-        antes.style.width =
-            porcentaje + "%";
+        // La imagen ANTES ocupa todo el comparador.
+        // Solo se modifica el recorte visible.
+        antes.style.clipPath =
+            `inset(0 ${100 - porcentaje}% 0 0)`;
 
-        linea.style.left =
-            porcentaje + "%";
+        // Mover línea y botón.
+        linea.style.left = porcentaje + "%";
     }
 
 
-    // Ajustar al cargar
-    ajustarImagen();
+    // =====================================================
+    // POSICIÓN INICIAL
+    // =====================================================
+
+    ajustarImagenAntes();
+
+    antes.style.clipPath =
+        "inset(0 50% 0 0)";
+
+    linea.style.left = "50%";
+
+    window.addEventListener("resize", ajustarImagenAntes);
 
 
-    // Ajustar si cambia el tamaño de pantalla
-    window.addEventListener(
-        "resize",
-        ajustarImagen
-    );
+    // =====================================================
+    // COMPUTADOR — MOUSE
+    // =====================================================
 
-
-    // Seguir el mouse
     comparador.addEventListener(
         "mousemove",
         (evento) => {
 
-            moverComparador(
-                evento.clientX
-            );
+            moverComparador(evento.clientX);
 
         }
     );
 
 
-    // Volver al centro
+    // =====================================================
+    // AL SALIR DEL COMPARADOR
+    // =====================================================
+
     comparador.addEventListener(
         "mouseleave",
         () => {
 
-            antes.style.width = "50%";
+            antes.style.clipPath =
+                "inset(0 50% 0 0)";
+
             linea.style.left = "50%";
 
         }
     );
 
 
-    // Celular
+    // =====================================================
+    // CELULAR — GESTO HORIZONTAL
+    // =====================================================
+
+    let inicioX = 0;
+    let inicioY = 0;
+    let gestoHorizontal = false;
+
+
+    comparador.addEventListener(
+        "touchstart",
+        (evento) => {
+
+            if (
+                !evento.touches ||
+                evento.touches.length === 0
+            ) {
+                return;
+            }
+
+            inicioX = evento.touches[0].clientX;
+            inicioY = evento.touches[0].clientY;
+            gestoHorizontal = false;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
     comparador.addEventListener(
         "touchmove",
         (evento) => {
 
             if (
-                evento.touches &&
-                evento.touches.length > 0
+                !evento.touches ||
+                evento.touches.length === 0
             ) {
-
-                moverComparador(
-                    evento.touches[0].clientX
-                );
-
+                return;
             }
 
+            const actualX = evento.touches[0].clientX;
+            const actualY = evento.touches[0].clientY;
+
+            const diferenciaX =
+                Math.abs(actualX - inicioX);
+
+            const diferenciaY =
+                Math.abs(actualY - inicioY);
+
+            if (!gestoHorizontal) {
+
+                if (
+                    diferenciaX > 10 &&
+                    diferenciaX > diferenciaY
+                ) {
+
+                    gestoHorizontal = true;
+
+                } else {
+
+                    return;
+
+                }
+            }
+
+            moverComparador(actualX);
+
         },
-        { passive: true }
+        {
+            passive: true
+        }
+    );
+
+
+    comparador.addEventListener(
+        "touchend",
+        () => {
+
+            gestoHorizontal = false;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    comparador.addEventListener(
+        "touchcancel",
+        () => {
+
+            gestoHorizontal = false;
+
+        },
+        {
+            passive: true
+        }
     );
 
 });
-
-
-        // -------------------------------------------------
-        // FUNCIÓN PARA MOVER LA LÍNEA
-        // -------------------------------------------------
-
-        function moverComparador(posicionX) {
-
-            const rect =
-                comparador.getBoundingClientRect();
-
-
-            let porcentaje =
-                ((posicionX - rect.left) / rect.width) * 100;
-
-
-            porcentaje =
-                Math.max(
-                    2,
-                    Math.min(98, porcentaje)
-                );
-
-
-            // Mueve la imagen ANTES
-
-            antes.style.width =
-                porcentaje + "%";
-
-
-            // Mueve la línea amarilla
-
-            linea.style.left =
-                porcentaje + "%";
-
-        }
-
-
-
-        // -------------------------------------------------
-        // MOUSE
-        // La línea sigue automáticamente al mouse
-        // -------------------------------------------------
-
-        comparador.addEventListener(
-            "mousemove",
-            (evento) => {
-
-                moverComparador(
-                    evento.clientX
-                );
-
-            }
-        );
-
-
-
-        // -------------------------------------------------
-        // CUANDO EL MOUSE SALE
-        // Regresa al centro
-        // -------------------------------------------------
-
-        comparador.addEventListener(
-            "mouseleave",
-            () => {
-
-                antes.style.width = "50%";
-
-                linea.style.left = "50%";
-
-            }
-        );
-
-
-
-        // -------------------------------------------------
-        // CELULAR / TABLET
-        // Permite moverlo con el dedo
-        // -------------------------------------------------
-
-        comparador.addEventListener(
-            "touchmove",
-            (evento) => {
-
-                if (
-                    evento.touches &&
-                    evento.touches.length > 0
-                ) {
-
-                    moverComparador(
-                        evento.touches[0].clientX
-                    );
-
-                }
-
-            },
-            {
-                passive: true
-            }
-        );
-
-    });
-
-
 
     // =====================================================
     // ANIMACIONES AL HACER SCROLL
@@ -383,42 +393,45 @@ comparadores.forEach((comparador) => {
 
 
 
-   // =====================================================
-// ACORDEÓN DE TECNOLOGÍA
-// =====================================================
+    // =====================================================
+    // ACORDEÓN DE TECNOLOGÍA
+    // =====================================================
 
-const pasosTecnologia =
-    document.querySelectorAll(".tecnologia-paso");
-
-
-pasosTecnologia.forEach((paso) => {
-
-    paso.addEventListener("click", function () {
-
-        const estabaAbierto =
-            paso.classList.contains("activo");
+    const pasosTecnologia =
+        document.querySelectorAll(".tecnologia-paso");
 
 
-        // Cerrar todas las tarjetas
+    pasosTecnologia.forEach((paso) => {
 
-        pasosTecnologia.forEach((item) => {
+        paso.addEventListener(
+            "click",
+            function () {
 
-            item.classList.remove("activo");
+                const estabaAbierto =
+                    paso.classList.contains("activo");
 
-        });
+
+                // Cerrar todas las tarjetas
+
+                pasosTecnologia.forEach((item) => {
+
+                    item.classList.remove("activo");
+
+                });
 
 
-        // Abrir la seleccionada
+                // Abrir la seleccionada
 
-        if (!estabaAbierto) {
+                if (!estabaAbierto) {
 
-            paso.classList.add("activo");
+                    paso.classList.add("activo");
 
-        }
+                }
+
+            }
+        );
 
     });
-
-});
 
 
 
@@ -451,9 +464,9 @@ pasosTecnologia.forEach((paso) => {
 
 
 
-    // -----------------------------------------------------
+    // =====================================================
     // RESPUESTAS DEL ASISTENTE
-    // -----------------------------------------------------
+    // =====================================================
 
     const respuestas = {
 
@@ -808,55 +821,59 @@ pasosTecnologia.forEach((paso) => {
 
 
 
-   // =====================================================
-// BOTÓN VOLVER ARRIBA
-// =====================================================
+    // =====================================================
+    // BOTÓN VOLVER ARRIBA
+    // =====================================================
 
-const botonSubir = document.querySelector(
-    ".boton-subir"
-);
-
-
-function actualizarBotonSubir() {
-
-    if (!botonSubir) {
-        return;
-    }
-
-    botonSubir.classList.toggle(
-        "visible",
-        window.scrollY > 500
+    const botonSubir = document.querySelector(
+        ".boton-subir"
     );
 
-}
 
+    function actualizarBotonSubir() {
 
-window.addEventListener(
-    "scroll",
-    actualizarBotonSubir,
-    {
-        passive: true
+        if (!botonSubir) {
+            return;
+        }
+
+        botonSubir.classList.toggle(
+            "visible",
+            window.scrollY > 500
+        );
+
     }
-);
 
 
-if (botonSubir) {
-
-    botonSubir.addEventListener(
-        "click",
-        () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
+    window.addEventListener(
+        "scroll",
+        actualizarBotonSubir,
+        {
+            passive: true
         }
     );
 
-}
 
-actualizarBotonSubir();
+    if (botonSubir) {
+
+        botonSubir.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+    }
+
+
+    actualizarBotonSubir();
+
+
+
     // =====================================================
     // AÑO AUTOMÁTICO
     // =====================================================
@@ -875,27 +892,51 @@ actualizarBotonSubir();
 
     }
 
-// =====================================================
-// ACORDEÓN DE TECNOLOGÍA — ÚNICO
-// =====================================================
 
-document.querySelectorAll(".tecnologia-paso").forEach((paso) => {
 
-    paso.addEventListener("click", function () {
+    // =====================================================
+    // ACORDEÓN DE TECNOLOGÍA — ÚNICO
+    // =====================================================
 
-        const estabaAbierto =
-            this.classList.contains("activo");
+    document
+        .querySelectorAll(".tecnologia-paso")
+        .forEach((paso) => {
 
-        // Cerrar todos
-        document.querySelectorAll(".tecnologia-paso").forEach((item) => {
-            item.classList.remove("activo");
+            paso.addEventListener(
+                "click",
+                function () {
+
+                    const estabaAbierto =
+                        this.classList.contains("activo");
+
+
+                    // Cerrar todos
+
+                    document
+                        .querySelectorAll(".tecnologia-paso")
+                        .forEach((item) => {
+
+                            item.classList.remove(
+                                "activo"
+                            );
+
+                        });
+
+
+                    // Abrir el seleccionado
+
+                    if (!estabaAbierto) {
+
+                        this.classList.add(
+                            "activo"
+                        );
+
+                    }
+
+                }
+            );
+
         });
 
-        // Abrir el seleccionado
-        if (!estabaAbierto) {
-            this.classList.add("activo");
-        }
-
-    });
 
 });
