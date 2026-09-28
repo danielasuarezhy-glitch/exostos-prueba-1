@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Exostos Amaya M&amp;M - Soluciones en control de emisiones, regeneración de DPF, catalizadores y exostos." name="description"/>
+  <title>
+   Exostos Amaya M&amp;M | Soluciones en control de emisiones
+  </title>
+  <link href="css/estilos.css" rel="stylesheet"/>
+  <style>
+   /* =========================================================
+   NOSOTROS — NUEVA JERARQUÍA VISUAL
+========================================================= */
+
+.nosotros-titulo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 42px;
+}
+
+.nosotros-titulo .nosotros-linea {
+    width: 42px;
+    height: 4px;
+    flex: 0 0 42px;
+    background: #ffc400;
+}
+
+.nosotros-titulo h2 {
+    margin: 0;
+    color: #151719;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(38px, 4.2vw, 58px);
+    line-height: .98;
+    font-weight: 800;
+    letter-spacing: -2.2px;
+}
+
+.nosotros-bloque-titulo {
+    margin: 0 0 30px;
+    padding-left: 20px;
+    border-left: 4px solid #ffc400;
+}
+
+.nosotros-bloque-titulo strong {
+    display: block;
+    max-width: 560px;
+    color: #151719;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(25px, 2.4vw, 34px);
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 700px) {
+    .nosotros-titulo {
+        margin-bottom: 30px;
+    }
+
+    .nosotros-titulo h2 {
+        font-size: 38px;
+        letter-spacing: -1.5px;
+    }
+
+    .nosotros-bloque-titulo {
+        padding-left: 15px;
+        margin-bottom: 24px;
+    }
+
+    .nosotros-bloque-titulo strong {
+        font-size: 25px;
+    }
+}
+  </style>
+  <style>
+   /* =========================================================
+   NOSOTROS V4 — EYEBROW AMARILLO
+========================================================= */
+
+.nosotros-titulo-principal {
+    display: flex;
+    align-items: center;
+    margin: 0 0 34px;
+}
+
+.nosotros-titulo-principal .nosotros-acento {
+    display: none;
+}
+
+.nosotros-titulo-principal h2 {
+    margin: 0;
+    color: #ffc400;
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.nosotros-bloque-titulo {
+    margin: 0 0 30px;
+    padding-left: 20px;
+    border-left: 4px solid #ffc400;
+}
+
+.nosotros-bloque-titulo strong {
+    display: block;
+    max-width: 570px;
+    color: #151719;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(25px, 2.35vw, 34px);
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* Evita que quede el antiguo encabezado pequeño */
+.nosotros > .contenedor > .titulo-seccion {
+    display: none !important;
+}
+
+@media (max-width: 700px) {
+    .nosotros-titulo-principal {
+        margin-bottom: 27px;
+    }
+
+    .nosotros-titulo-principal h2 {
+        font-size: 13px;
+        letter-spacing: 2.5px;
+    }
+
+    .nosotros-bloque-titulo {
+        padding-left: 15px;
+        margin-bottom: 24px;
+    }
+
+    .nosotros-bloque-titulo strong {
+        font-size: 25px;
+    }
+}
+  </style>
+ </head>
+ <body>
+  <!-- ==============================
+         ENCABEZADO
+    =============================== -->
+  <header class="header">
+   <div class="header-contenedor contenedor">
+    <!-- MARCA -->
+    <a class="marca" href="#inicio">
+     <img alt="Exostos Amaya M&amp;M" class="marca-logo" src="img/logo.png"/>
+     <div class="marca-texto">
+      <strong>
+       EXOSTOS AMAYA M&amp;M
+      </strong>
+      <span>
+       CONTROL DE EMISIONES
+      </span>
+     </div>
+    </a>
+    <!-- MENÚ -->
+    <nav class="menu">
+     <a href="#inicio">
+      INICIO
+     </a>
+     <a href="#nosotros">
+      NOSOTROS
+     </a>
+     <a href="#servicios">
+      SERVICIOS
+     </a>
+     <a href="#resultados">
+      RESULTADOS
+     </a>
+     <a href="#clientes">
+      CLIENTES
+     </a>
+     <a href="#contacto">
+      CONTACTO
+     </a>
+    </nav>
+    <!-- MENÚ MÓVIL -->
+    <button aria-label="Abrir menú" class="menu-movil" type="button">
+     ☰
+    </button>
+   </div>
+  </header>
+  <main>
+   <!-- ==============================
+             HERO
+        =============================== -->
+   <section class="hero" id="inicio">
+    <div class="hero-contenido contenedor">
+     <div class="hero-texto">
+      <span class="etiqueta">
+       SOLUCIONES EN CONTROL DE EMISIONES
+      </span>
+      <h1>
+       Tecnología para un
+       <span>
+        transporte más limpio.
+       </span>
+      </h1>
+      <p>
+       Regeneración de DPF, catalizadores y
+                        soluciones especializadas para el control
+                        de emisiones.
+      </p>
+      <div class="hero-botones">
+       <a class="boton boton-amarillo" href="#servicios">
+        Conoce nuestros servicios
+       </a>
+       <a class="boton boton-contorno" href="https://wa.me/573105889062" target="_blank">
+        Solicitar servicio
+       </a>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- ==============================
+             CIFRAS
+        =============================== -->
+   <section class="cifras">
+    <div class="contenedor cifras-grid">
+     <div class="cifra">
+      <strong>
+       +15
+      </strong>
+      <span>
+       Años de experiencia
+      </span>
+     </div>
+     <div class="cifra">
+      <strong>
+       DPF
+      </strong>
+      <span>
+       Regeneración especializada
+      </span>
+     </div>
+     <div class="cifra">
+      <strong>
+       360°
+      </strong>
+      <span>
+       Soluciones para flotas
+      </span>
+     </div>
+     <div class="cifra">
+      <strong>
+       100%
+      </strong>
+      <span>
+       Compromiso con el servicio
+      </span>
+     </div>
+    </div>
+   </section>
+   <!-- ==============================
+             NOSOTROS
+        =============================== -->
+   <section class="seccion nosotros" id="nosotros">
+    <div class="contenedor">
+     <div class="nosotros-titulo-principal">
+      <span class="nosotros-acento">
+      </span>
+      <h2>
+       QUIÉNES SOMOS
+      </h2>
+     </div>
+     <div class="nosotros-grid">
+      <!-- TEXTO -->
+      <div class="nosotros-texto">
+       <div class="nosotros-bloque-titulo">
+        <strong>
+         Conocimiento, compromiso y visión de futuro.
+        </strong>
+       </div>
+       <p>
+        EXOSTOS AMAYA M&amp;M es una empresa colombiana con más de
+                            15 años de experiencia, orientada al desarrollo de
+                            soluciones técnicas para el sector transporte.
+       </p>
+       <p>
+        Nuestra trayectoria se ha construido sobre el conocimiento
+                            técnico, el compromiso con nuestros clientes y una forma
+                            de trabajo enfocada en la calidad y la mejora continua.
+       </p>
+       <p>
+        Trabajamos con una visión responsable, buscando aportar
+                            al cuidado del medio ambiente y al desarrollo de una
+                            movilidad más sostenible.
+       </p>
+      </div>
+      <!-- IMAGEN -->
+      <div class="nosotros-imagen">
+       <img alt="Equipo de trabajo de Exostos Amaya M&amp;M" src="img/nosotros.png"/>
+       <div class="nosotros-imagen-texto">
+        <span>
+         EXOSTOS AMAYA M&amp;M
+        </span>
+        <strong>
+         Un espacio diseñado para el trabajo técnico.
+        </strong>
+       </div>
+      </div>
+     </div>
+    <!-- =================================
+     MISIÓN / VISIÓN / VALORES
+================================== -->
+
+<div class="identidad-nueva">
+
+    <!-- MISIÓN -->
+    <article class="identidad-bloque identidad-mision">
+
+        <div class="identidad-numero">
+            01
+        </div>
+
+        <div class="identidad-contenido">
+
+            <span>PROPÓSITO</span>
+
+            <h3>Mis<span>ión</span></h3>
+
+            <p>
+                Brindar soluciones técnicas en control de emisiones
+                que contribuyan al mejoramiento de la calidad del aire,
+                con un servicio confiable y responsable.
+            </p>
+
+        </div>
+
+        <div class="identidad-media identidad-media-derecha">
+            <span class="identidad-media-marco"></span>
+            <img src="img/mision.png" alt="Tecnología para el control de emisiones">
+        </div>
+
+    </article>
+
+
+    <!-- VISIÓN -->
+    <article class="identidad-bloque identidad-bloque-invertido identidad-vision">
+
+        <div class="identidad-media identidad-media-izquierda">
+            <span class="identidad-media-marco"></span>
+            <img src="img/vision.png" alt="Soluciones para el sector transporte">
+        </div>
+
+        <div class="identidad-contenido">
+
+            <span>PROYECCIÓN</span>
+
+            <h3>Vis<span>ión</span></h3>
+
+            <p>
+                Ser una empresa reconocida en Colombia por su aporte
+                a la movilidad sostenible, la innovación en soluciones
+                ambientales y la satisfacción de nuestros clientes.
+            </p>
+
+        </div>
+
+        <div class="identidad-numero">
+            02
+        </div>
+
+    </article>
+
+
+    <!-- VALORES -->
+    <div class="valores-nuevo">
+
+        <div class="valores-nuevo-titulo">
+
+            <span>LO QUE NOS DEFINE</span>
+
+            <h3>
+                Nuestros
+                <strong>valores</strong>
+            </h3>
+
+            <p>
+                Principios que orientan nuestra forma de trabajar
+                y relacionarnos con nuestros clientes.
+            </p>
+
+        </div>
+
+
+        <div class="valores-lista">
+
+    <button class="valor-nuevo" type="button" aria-expanded="false">
+
+        <div class="valor-cabecera">
+            <span>01</span>
+            <strong>Calidad</strong>
+        </div>
+
+        <div class="valor-icono">+</div>
+
+        <div class="valor-descripcion">
+            Trabajamos con enfoque en la calidad de nuestras
+            soluciones, buscando que cada servicio responda a
+            las necesidades técnicas de nuestros clientes.
+        </div>
+
+    </button>
+
+
+    <button class="valor-nuevo" type="button" aria-expanded="false">
+
+        <div class="valor-cabecera">
+            <span>02</span>
+            <strong>Responsabilidad ambiental</strong>
+        </div>
+
+        <div class="valor-icono">+</div>
+
+        <div class="valor-descripcion">
+            Promovemos soluciones orientadas al control de emisiones
+            y al cuidado del medio ambiente, aportando a una movilidad
+            más responsable y sostenible.
+        </div>
+
+    </button>
+
+
+    <button class="valor-nuevo" type="button" aria-expanded="false">
+
+        <div class="valor-cabecera">
+            <span>03</span>
+            <strong>Compromiso</strong>
+        </div>
+
+        <div class="valor-icono">+</div>
+
+        <div class="valor-descripcion">
+            Asumimos con responsabilidad cada servicio y cada
+            requerimiento, buscando brindar una atención confiable
+            y orientada a las necesidades de nuestros clientes.
+        </div>
+
+    </button>
+
+
+    <button class="valor-nuevo" type="button" aria-expanded="false">
+
+        <div class="valor-cabecera">
+            <span>04</span>
+            <strong>Trabajo en equipo</strong>
+        </div>
+
+        <div class="valor-icono">+</div>
+
+        <div class="valor-descripcion">
+            Creemos en la colaboración y en el conocimiento compartido
+            como elementos fundamentales para desarrollar nuestro
+            trabajo de manera eficiente.
+        </div>
+
+    </button>
+
+
+    <button class="valor-nuevo" type="button" aria-expanded="false">
+
+        <div class="valor-cabecera">
+            <span>05</span>
+            <strong>Mejora continua</strong>
+        </div>
+
+        <div class="valor-icono">+</div>
+
+        <div class="valor-descripcion">
+            Revisamos nuestras actividades y procesos para identificar
+            oportunidades de mejora y seguir fortaleciendo la calidad
+            de nuestras soluciones.
+        </div>
+
+    </button>
+
+        </div><!-- /.valores-lista -->
+
+    </div><!-- /.valores-nuevo -->
+
+</div><!-- /.identidad-nueva -->
+
+</div><!-- /.contenedor -->
+
+</section><!-- /.nosotros -->
+
+<!-- ==============================
+         SERVICIOS
+    =============================== -->
+   <section class="seccion servicios" id="servicios">
+    <div class="contenedor">
+     <div class="titulo-seccion centrado">
+      <span>
+       NUESTROS SERVICIOS
+      </span>
+      <h2>
+       Soluciones especializadas
+                        para cada necesidad.
+      </h2>
+      <p>
+       Tecnología y experiencia para mantener
+                        los sistemas de control de emisiones
+                        funcionando correctamente.
+      </p>
+     </div>
+     <div class="servicios-grid">
+      <!-- 01 -->
+      <article class="servicio-card" data-number="01">
+       <div class="servicio-imagen">
+        <img alt="Regeneración de DPF" src="img/servicio-dpf.png"/>
+        <span class="servicio-numero">
+         01
+        </span>
+       </div>
+       <div class="servicio-contenido">
+        <span class="servicio-linea">
+        </span>
+        <h3>
+         Regeneración de DPF
+        </h3>
+        <p>
+         Limpieza y regeneración especializada
+                para recuperar el flujo y funcionamiento
+                del filtro.
+        </p>
+       </div>
+      </article>
+      <!-- 02 -->
+      <article class="servicio-card" data-number="02">
+       <div class="servicio-imagen">
+        <img alt="Regeneración de catalizadores" src="img/servicio-catalizador.png"/>
+        <span class="servicio-numero">
+         02
+        </span>
+       </div>
+       <div class="servicio-contenido">
+        <span class="servicio-linea">
+        </span>
+        <h3>
+         Regeneración de catalizadores
+        </h3>
+        <p>
+         Procesos especializados para eliminar
+                residuos y recuperar el rendimiento
+                del componente.
+        </p>
+       </div>
+      </article>
+      <!-- 03 -->
+      <article class="servicio-card" data-number="03">
+       <div class="servicio-imagen">
+        <img alt="Limpieza y descontaminación" src="img/servicio-limpieza.png"/>
+        <span class="servicio-numero">
+         03
+        </span>
+       </div>
+       <div class="servicio-contenido">
+        <span class="servicio-linea">
+        </span>
+        <h3>
+         Mantenimiento de tanques de combustible
+        </h3>
+        <p>
+                Mantenimiento, limpieza y adecuación de tanques de combustible para garantizar su correcto funcionamiento y conservación.
+        </p>
+       </div>
+      </article>
+      <!-- 04 -->
+      <article class="servicio-card" data-number="04">
+       <div class="servicio-imagen">
+        <img alt="Sustitución de cerámica" src="img/servicio-ceramica.png"/>
+        <span class="servicio-numero">
+         04
+        </span>
+       </div>
+       <div class="servicio-contenido">
+        <span class="servicio-linea">
+        </span>
+        <h3>
+         Sustitución de cerámica
+        </h3>
+        <p>
+         Reemplazo de cerámica dañada o sin
+                posibilidad de recuperación.
+        </p>
+       </div>
+      </article>
+      <!-- 05 -->
+      <article class="servicio-card" data-number="05">
+       <div class="servicio-imagen">
+        <img alt="Piezas de intercambio" src="img/servicio-intercambio.png"/>
+        <span class="servicio-numero">
+         05
+        </span>
+       </div>
+       <div class="servicio-contenido">
+        <span class="servicio-linea">
+        </span>
+        <h3>
+         Piezas de intercambio
+        </h3>
+        <p>
+         Alternativas para minimizar el tiempo
+                de inmovilización del vehículo.
+        </p>
+       </div>
+      </article>
+      <!-- 06 -->
+      <article class="servicio-card" data-number="06">
+       <div class="servicio-imagen">
+        <img alt="Mantenimiento de exostos" src="img/servicio-exostos.png"/>
+        <span class="servicio-numero">
+         06
+        </span>
+       </div>
+       <div class="servicio-contenido">
+        <span class="servicio-linea">
+        </span>
+        <h3>
+         Mantenimiento de exostos
+        </h3>
+        <p>
+         Intervención, ajuste, ensamble y acabado
+                de sistemas de escape.
+        </p>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+   <!-- ==============================
+             TECNOLOGÍA
+        =============================== -->
+   <section class="tecnologia">
+      <div class="contenedor tecnologia-grid">
+       <div>
+        <span class="etiqueta">
+         TECNOLOGÍA
+        </span>
+        <h2>
+         Tecnología avanzada
+                        para resultados reales.
+        </h2>
+        <p>
+         Contamos con procesos especializados para
+                        la limpieza y regeneración de DPF y
+                        catalizadores.
+        </p>
+        <div class="tecnologia-lista">
+
+    <!-- 01 DIAGNÓSTICO -->
+    <button class="tecnologia-paso" type="button">
+
+        <div class="tecnologia-cabecera">
+            <strong>01</strong>
+            <span>Diagnóstico</span>
+        </div>
+
+        <div class="tecnologia-icono">+</div>
+
+        <div class="tecnologia-descripcion">
+            Inspección minuciosa de la cerámica para asegurar su aptitud.
+        </div>
+
+    </button>
+
+
+    <!-- 02 LIMPIEZA NEUMÁTICA -->
+    <button class="tecnologia-paso" type="button">
+
+        <div class="tecnologia-cabecera">
+            <strong>02</strong>
+            <span>Limpieza Neumática</span>
+        </div>
+
+        <div class="tecnologia-icono">+</div>
+
+        <div class="tecnologia-descripcion">
+            Eliminación inicial de obstrucciones y residuos no deseados sin dañar la pieza.
+        </div>
+
+    </button>
+
+
+    <!-- 03 HORNO PIROLÍTICO -->
+    <button class="tecnologia-paso" type="button">
+
+        <div class="tecnologia-cabecera">
+            <strong>03</strong>
+            <span>Horno Pirolítico</span>
+        </div>
+
+        <div class="tecnologia-icono">+</div>
+
+        <div class="tecnologia-descripcion">
+            Regeneración térmica entre <strong>300° y 600°</strong>. El 100% del hollín profundamente adherido se quema bajo calor cuidadosamente programado.
+        </div>
+
+    </button>
+
+
+    <!-- 04 TEST FINAL -->
+    <button class="tecnologia-paso" type="button">
+
+        <div class="tecnologia-cabecera">
+            <strong>04</strong>
+            <span>Test Final</span>
+        </div>
+
+        <div class="tecnologia-icono">+</div>
+
+        <div class="tecnologia-descripcion">
+            Rigurosa comprobación de emisiones para garantizar la calidad antes de la entrega.
+        </div>
+
+    </button>
+
+</div>
+
+        </div>
+
+        <div class="tecnologia-imagen">
+    <div class="imagen-deslizante">
+        <img
+            src="img/tecnologia.png"
+            alt="Tecnología para regeneración de DPF"
+        >
+
+        <button class="flecha-imagen arriba" type="button" onclick="moverImagen(-1)">
+            ↑
+        </button>
+
+        <button class="flecha-imagen abajo" type="button" onclick="moverImagen(1)">
+            ↓
+        </button>
+    </div>
+</div>
+
+    </section>
+      <!-- ==============================
+     ANTES Y DESPUÉS
+=============================== -->
+<section class="seccion resultados" id="resultados">
+
+    <div class="contenedor">
+
+        <div class="titulo-seccion centrado">
+            <span>RESULTADOS</span>
+
+            <h2>Antes y después</h2>
+
+            <p>
+                Compara visualmente el estado de los componentes
+                antes y después de nuestra intervención.
+            </p>
+        </div>
+
+
+        <div class="comparadores-grid">
+
+            <!-- =========================
+                 COMPARADOR 1
+            ========================== -->
+            <div class="comparador">
+
+                <div class="comparador-despues">
+                    <img
+                        src="img/despues.png"
+                        alt="Después de la intervención">
+                </div>
+
+                <div class="comparador-antes">
+                    <img
+                        src="img/antes.png"
+                        alt="Antes de la intervención">
+                </div>
+
+                <div class="comparador-linea">
+                    <div class="comparador-boton">
+                        ↔
+                    </div>
+                </div>
+
+                <span class="etiqueta-antes">
+                    ANTES
+                </span>
+
+                <span class="etiqueta-despues">
+                    DESPUÉS
+                </span>
+
+            </div>
+
+
+            <!-- =========================
+                 COMPARADOR 2
+                 IMÁGENES PENDIENTES
+            ========================== -->
+            <div class="comparador">
+
+                <div class="comparador-despues">
+                    <img
+                        src="img/despues-2.png"
+                        alt="Después de la intervención">
+                </div>
+
+                <div class="comparador-antes">
+                    <img
+                        src="img/antes-2.png"
+                        alt="Antes de la intervención">
+                </div>
+
+                <div class="comparador-linea">
+                    <div class="comparador-boton">
+                        ↔
+                    </div>
+                </div>
+
+                <span class="etiqueta-antes">
+                    ANTES
+                </span>
+
+                <span class="etiqueta-despues">
+                    DESPUÉS
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+     <!-- ==============================
+     SOLUCIONES PARA CADA FLOTA
+=============================== -->
+     <section class="flotas" id="flotas">
+      <div class="contenedor">
+       <div class="flotas-encabezado">
+        <span class="etiqueta-seccion">
+         SOLUCIONES PARA CADA FLOTA
+        </span>
+        <h2>
+         Una solución para cada
+         <span>
+          operación.
+         </span>
+        </h2>
+        <p>
+         Soluciones técnicas adaptadas a las necesidades
+                de diferentes sectores y tipos de vehículos.
+        </p>
+       </div>
+       <div class="flotas-grid">
+        <!-- 01 -->
+        <article class="flota-card">
+         <img alt="Maquinaria pesada y construcción" src="img/flota-intermunicipal.png"/>
+         <div class="flota-overlay">
+         </div>
+         <div class="flota-contenido">
+          <span class="flota-numero">
+           01
+          </span>
+          <h3>
+           Transporte intermunicipal
+          </h3>
+          <span class="flota-linea">
+          </span>
+         </div>
+        </article>
+        <!-- 03 -->
+        <article class="flota-card">
+         <img alt="Vehículos de emergencia" src="img/flota-emergencia.png"/>
+         <div class="flota-overlay">
+         </div>
+         <div class="flota-contenido">
+          <span class="flota-numero">
+           03
+          </span>
+          <h3>
+           Vehículos de emergencia
+          </h3>
+          <span class="flota-linea">
+          </span>
+         </div>
+        </article>
+        <!-- 04 -->
+        <article class="flota-card">
+         <img alt="Taxis y vehículos de servicio privado" src="img/flota-taxis.png"/>
+         <div class="flota-overlay">
+         </div>
+         <div class="flota-contenido">
+          <span class="flota-numero">
+           04
+          </span>
+          <h3>
+           Flotas de taxis y servicios privados
+          </h3>
+          <span class="flota-linea">
+          </span>
+         </div>
+        </article>
+        <!-- 05 -->
+        <article class="flota-card">
+         <img alt="Vehículos de servicios urbanos y aseo" src="img/flota-aseo.png"/>
+         <div class="flota-overlay">
+         </div>
+         <div class="flota-contenido">
+          <span class="flota-numero">
+           05
+          </span>
+          <h3>
+           Servicios urbanos y aseo
+          </h3>
+          <span class="flota-linea">
+          </span>
+         </div>
+        </article>
+        <!-- 06 -->
+        <article class="flota-card">
+         <img alt="Logística y transporte de carga" src="img/flota-carga.png"/>
+         <div class="flota-overlay">
+         </div>
+         <div class="flota-contenido">
+          <span class="flota-numero">
+           06
+          </span>
+          <h3>
+           Logística y transporte de carga
+          </h3>
+          <span class="flota-linea">
+          </span>
+         </div>
+        </article>
+        <!-- 07 -->
+        <article class="flota-card">
+         <img alt="Maquinaria ytransporte publico" src="img/flota-agricola.jpeg"/>
+         <div class="flota-overlay">
+         </div>
+         <div class="flota-contenido">
+          <span class="flota-numero">
+           07
+          </span>
+          <h3>
+           Transporte publico
+          </h3>
+          <span class="flota-linea">
+          </span>
+         </div>
+        </article>
+        <!-- 08 -->
+       </div>
+      </div>
+     </section>
+     <!-- ==============================
+             CLIENTES
+        =============================== -->
+     <section class="clientes" id="clientes">
+      <div class="contenedor">
+       <div class="titulo-seccion centrado">
+        <span>
+         NUESTROS CLIENTES
+        </span>
+        <h2>
+         Empresas que confían
+                        en nuestro trabajo.
+        </h2>
+       </div>
+       <div class="clientes-lista">
+
+        <div class="cliente-logo">
+         <img src="img/transmilenio.png" alt="TransMilenio">
+        </div>
+
+        <div class="cliente-logo">
+         <img src="img/sitp.png" alt="SITP">
+        </div>
+
+        <div class="cliente-logo">
+         <img src="img/consorcio-express.png" alt="Consorcio Express">
+        </div>
+
+        <div class="cliente-logo">
+         <img src="img/etib.png" alt="ETIB">
+        </div>
+
+        <div class="cliente-logo">
+         <img src="img/rayo-gas.png" alt="Rayo Gas">
+        </div>
+
+        <div class="cliente-logo">
+         <img src="img/suma.png" alt="SUMA">
+        </div>
+
+        <div class="cliente-logo">
+         <img src="img/e-masivo.png" alt="E Masivo">
+        </div>
+
+       </div>
+      </div>
+     </section>
+     <!-- ==============================
+             CONTACTO
+        =============================== -->
+     <section class="seccion contacto" id="contacto">
+      <div class="contenedor contacto-grid">
+       <div>
+        <span class="etiqueta">
+         CONTÁCTANOS
+        </span>
+        <h2>
+         ¿Necesitas una
+                        solución para tu flota?
+        </h2>
+        <p>
+         Nuestro equipo está listo para
+                        asesorarte.
+        </p>
+        <div class="contacto-datos">
+         <p>
+          <strong>
+           Dirección
+          </strong>
+          <br/>
+          Cra. 78A #65A-59 Sur, Bosa, Bogotá
+         </p>
+         <p>
+          <strong>
+           Teléfono
+          </strong>
+          <br/>
+          +57 310 588 9062
+         </p>
+         <p>
+          <strong>
+           Correo
+          </strong>
+          <br/>
+          exostosamayamym@gmail.com
+         </p>
+         <p>
+          <strong>
+           Horario
+          </strong>
+          <br/>
+          Lunes a viernes:
+                            8:00 a.m. – 5:00 p.m.
+          <br/>
+          Sábados:
+                            8:00 a.m. – 1:00 p.m.
+         </p>
+        </div>
+        <a class="boton boton-amarillo" href="https://wa.me/573105889062" target="_blank">
+         Hablar por WhatsApp
+        </a>
+       </div>
+       <div class="mapa">
+    <iframe
+        src="https://www.google.com/maps?q=Cra.%2078A%20%2365A-59%20Sur,%20Bosa,%20Bogotá&output=embed"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+        <div>
+         <strong>
+          EXOSTOS AMAYA M&amp;M
+         </strong>
+         <p>
+          Bosa, Bogotá D.C.
+         </p>
+        </div>
+       </div>
+      </div>
+     </section>
+  </main>
+  <!-- ==============================
+         FOOTER
+    =============================== -->
+  <footer class="footer">
+   <div class="contenedor footer-contenido">
+    <div>
+     <strong>
+      EXOSTOS AMAYA M&amp;M
+     </strong>
+     <p>
+      Soluciones en control de emisiones.
+     </p>
+    </div>
+    <div>
+     <p>
+      © 2026 Exostos Amaya M&amp;M
+     </p>
+     <p>
+      Todos los derechos reservados.
+     </p>
+    </div>
+   </div>
+  </footer>
+
+  <!-- ==========================================
+       ASISTENTE VIRTUAL
+  =========================================== -->
+  <button
+    class="asistente-flotante"
+    id="boton-asistente"
+    type="button"
+    aria-label="Abrir asistente virtual"
+    aria-expanded="false"
+    aria-controls="panel-asistente">
+    <span class="asistente-icono">🤖</span>
+    <span class="asistente-punto"></span>
+  </button>
+
+  <aside class="asistente-panel" id="panel-asistente" aria-hidden="true">
+    <div class="asistente-cabecera">
+      <div class="asistente-identidad">
+        <div class="asistente-avatar">🤖</div>
+        <div>
+          <strong>Asistente Exostos Amaya</strong>
+          <span>Información rápida</span>
+        </div>
+      </div>
+      <button class="asistente-cerrar" id="cerrar-asistente" type="button" aria-label="Cerrar asistente">×</button>
+    </div>
+
+    <div class="asistente-contenido">
+      <p class="asistente-saludo">
+        ¡Hola! 👋 Puedo ayudarte con información básica de EXOSTOS AMAYA M&amp;M.
+      </p>
+
+      <div class="asistente-preguntas">
+        <button type="button" data-pregunta="ubicacion">📍 ¿Dónde están ubicados?</button>
+        <button type="button" data-pregunta="contacto">📞 ¿Cómo puedo contactarlos?</button>
+        <button type="button" data-pregunta="flotas">🚛 ¿Con qué flotas trabajan?</button>
+        <button type="button" data-pregunta="servicios">🔧 ¿Qué servicios ofrecen?</button>
+        <button type="button" data-pregunta="horarios">🕐 ¿Cuál es su horario?</button>
+        <button type="button" data-pregunta="empresa">🏢 ¿Quiénes son?</button>
+      </div>
+
+      <div class="asistente-respuesta" id="asistente-respuesta" hidden></div>
+    </div>
+
+    <div class="asistente-pie">
+      <span>¿Necesitas atención personalizada?</span>
+      <a
+        href="https://wa.me/573105889062?text=Hola%20EXOSTOS%20AMAYA%20M%26M.%20Necesito%20atenci%C3%B3n%20personalizada."
+        target="_blank"
+        rel="noopener noreferrer">
+        Hablar por WhatsApp →
+      </a>
+    </div>
+  </aside>
+<!-- BOTÓN VOLVER ARRIBA -->
+<button
+    class="boton-subir"
+    id="boton-subir"
+    type="button"
+    aria-label="Volver arriba"
+    title="Volver arriba"
+>
+    ↑
+</button>
+<!-- BOTÓN WHATSAPP -->
+<a 
+    aria-label="Contactar por WhatsApp" 
+    class="whatsapp-flotante" 
+    href="https://wa.me/573105889062" 
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    <svg 
+        class="whatsapp-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+    >
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982 1-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.887 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.89c0 2.096.547 4.142 1.588 5.946L.057 24l6.304-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.478-8.413"/>
+    </svg>
+</a>
+
+<script src="js/script.js"></script>
+
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const botonAsistente = document.getElementById("boton-asistente");
+    const panelAsistente = document.getElementById("panel-asistente");
+    const cerrarAsistente = document.getElementById("cerrar-asistente");
+    const respuesta = document.getElementById("asistente-respuesta");
+
+    if (!botonAsistente || !panelAsistente) {
+        console.log("❌ No se encontró el asistente");
+        return;
+    }
+
+    console.log("✅ Asistente cargado correctamente");
+
+    const respuestas = {
+        ubicacion: `
+            <strong>📍 Estamos ubicados en:</strong>
+            <p>Cra. 78A #65A-59 Sur, Bosa, Bogotá D.C.</p>
+        `,
+
+        contacto: `
+            <strong>📞 ¿Cómo puedes contactarnos?</strong>
+            <p>WhatsApp: <strong>+57 310 588 9062</strong></p>
+            <p>Correo: <strong>exostosamayamym@gmail.com</strong></p>
+        `,
+
+        flotas: `
+            <strong>🚛 Trabajamos con diferentes tipos de flota.</strong>
+            <p>
+                Transporte intermunicipal,
+                vehículos de emergencia, taxis, servicios privados,
+                aseo, carga, transporte público.
+            </p>
+        `,
+
+        servicios: `
+            <strong>🔧 Nuestros servicios</strong>
+            <p>
+                Regeneración de DPF, regeneración y limpieza de catalizadores,
+                limpieza y descontaminación, sustitución de cerámica,
+                piezas de intercambio ,mantenimiento de exostos y mantenimiento
+                de tanques de combustible.
+            </p>
+        `,
+
+        horarios: `
+            <strong>🕐 Horarios de atención</strong>
+            <p>
+                Lunes a viernes: <strong>8:00 a.m. – 5:00 p.m.</strong><br>
+                Sábados: <strong>8:00 a.m. – 1:00 p.m.</strong>
+            </p>
+        `,
+
+        empresa: `
+            <strong>🏢 EXOSTOS AMAYA M&M</strong>
+            <p>
+                Somos una empresa colombiana con más de 15 años de experiencia,
+                especializada en soluciones técnicas para sistemas de escape
+                y control de emisiones.
+            </p>
+        `
+    };
+
+    // ABRIR ROBOT
+    botonAsistente.addEventListener("click", function (evento) {
+
+        evento.stopPropagation();
+
+        const estaAbierto =
+            panelAsistente.classList.contains("abierto");
+
+        if (estaAbierto) {
+
+            panelAsistente.classList.remove("abierto");
+            panelAsistente.setAttribute("aria-hidden", "true");
+            botonAsistente.setAttribute("aria-expanded", "false");
+
+        } else {
+
+            panelAsistente.classList.add("abierto");
+            panelAsistente.setAttribute("aria-hidden", "false");
+            botonAsistente.setAttribute("aria-expanded", "true");
+
+        }
+
+    });
+
+    // CERRAR
+    if (cerrarAsistente) {
+
+        cerrarAsistente.addEventListener("click", function (evento) {
+
+            evento.stopPropagation();
+
+            panelAsistente.classList.remove("abierto");
+            panelAsistente.setAttribute("aria-hidden", "true");
+            botonAsistente.setAttribute("aria-expanded", "false");
+
+        });
+
+    }
+
+    // PREGUNTAS
+    document.querySelectorAll(".asistente-preguntas button").forEach(function (boton) {
+
+        boton.addEventListener("click", function () {
+
+            const pregunta = boton.dataset.pregunta;
+
+            if (!respuestas[pregunta] || !respuesta) {
+                return;
+            }
+
+            respuesta.innerHTML = respuestas[pregunta];
+            respuesta.hidden = false;
+
+        });
+
+    });
+
+});
+</script>
+<!-- =====================================================
+     TECNOLOGÍA — ACORDEÓN
+===================================================== -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const pasosTecnologia =
+        document.querySelectorAll(".tecnologia-paso");
+
+    pasosTecnologia.forEach(function (paso) {
+
+        paso.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            const estabaAbierto =
+                paso.classList.contains("activo");
+
+
+            // CERRAR TODOS
+            pasosTecnologia.forEach(function (item) {
+
+                item.classList.remove("activo");
+
+                const texto =
+                    item.querySelector(".tecnologia-descripcion");
+
+                if (texto) {
+
+                    texto.style.maxHeight = "0px";
+                    texto.style.opacity = "0";
+                    texto.style.visibility = "hidden";
+                    texto.style.marginTop = "0px";
+                }
+
+            });
+
+
+            // ABRIR EL SELECCIONADO
+            if (!estabaAbierto) {
+
+                paso.classList.add("activo");
+
+                const descripcion =
+                    paso.querySelector(".tecnologia-descripcion");
+
+                if (descripcion) {
+
+                    descripcion.style.maxHeight =
+                        descripcion.scrollHeight + "px";
+
+                    descripcion.style.opacity = "1";
+                    descripcion.style.visibility = "visible";
+                    descripcion.style.marginTop = "18px";
+                }
+
+            }
+
+        });
+
+    });
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const botonSubir = document.getElementById("boton-subir");
+
+    if (!botonSubir) {
+        console.log("❌ No existe el botón volver arriba");
+        return;
+    }
+
+    function controlarBotonSubir() {
+
+        if (window.scrollY > 500) {
+
+            botonSubir.classList.add("visible");
+
+        } else {
+
+            botonSubir.classList.remove("visible");
+
+        }
+
+    }
+
+    window.addEventListener(
+        "scroll",
+        controlarBotonSubir,
+        { passive: true }
+    );
+
+    botonSubir.addEventListener("click", function () {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+    controlarBotonSubir();
+
+});
+</script>
+
+</body>
+</html>
