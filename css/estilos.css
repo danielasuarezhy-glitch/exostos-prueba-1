@@ -7698,3 +7698,105 @@ h1, h2, h3, h4, h5, h6,
     opacity: 0 !important;
     pointer-events: none !important;
 }
+/* =========================================================
+   CORRECCIÓN FINAL TECNOLOGÍA — MÓVIL
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .tecnologia-grid {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 40px !important;
+        margin: 0 !important;
+    }
+
+    .tecnologia-grid > div:first-child {
+        grid-column: 1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .tecnologia-grid > .tecnologia-imagen {
+        grid-column: 1 !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .tecnologia-lista {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .tecnologia-paso {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .tecnologia-cabecera {
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .tecnologia-cabecera span {
+        min-width: 0 !important;
+        max-width: 100% !important;
+        overflow-wrap: break-word !important;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .tecnologia {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .tecnologia-grid {
+        width: calc(100% - 30px) !important;
+        max-width: calc(100% - 30px) !important;
+        margin: 0 15px !important;
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+
+    .tecnologia-lista {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .tecnologia-paso {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 16px !important;
+    }
+
+    .tecnologia-imagen {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+    }
+
+    .tecnologia-imagen img {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        max-width: 100% !important;
+    }
+}
