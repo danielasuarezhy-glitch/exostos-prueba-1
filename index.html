@@ -7,153 +7,30 @@
   <title>
    Exostos Amaya M&amp;M | Soluciones en control de emisiones
   </title>
+  <meta name="theme-color" content="#151719"/>
+
+  <!-- Vista previa al compartir el enlace (WhatsApp, Facebook, LinkedIn) -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="es_CO"/>
+  <meta property="og:site_name" content="Exostos Amaya M&amp;M"/>
+  <meta property="og:title" content="Exostos Amaya M&amp;M | Soluciones en control de emisiones"/>
+  <meta property="og:description" content="Regeneración de DPF, catalizadores y soluciones especializadas para el control de emisiones en Bogotá."/>
+  <!-- Cuando la página tenga dominio, cambia esto por la dirección completa, ej: https://tudominio.com/img/compartir.jpg -->
+  <meta property="og:image" content="img/compartir.jpg"/>
+
+  <!-- Ícono de la pestaña -->
+  <link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png"/>
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png"/>
+
+  <!-- Fuentes (antes se cargaban con @import dentro del CSS, que es más lento) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+
+  <!-- La imagen principal se descarga primero -->
+  <link rel="preload" as="image" href="img/hero.webp" type="image/webp"/>
+
   <link href="css/estilos.css" rel="stylesheet"/>
-  <style>
-   /* =========================================================
-   NOSOTROS — NUEVA JERARQUÍA VISUAL
-========================================================= */
-
-.nosotros-titulo {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 42px;
-}
-
-.nosotros-titulo .nosotros-linea {
-    width: 42px;
-    height: 4px;
-    flex: 0 0 42px;
-    background: #ffc400;
-}
-
-.nosotros-titulo h2 {
-    margin: 0;
-    color: #151719;
-    font-family: "Manrope", sans-serif;
-    font-size: clamp(38px, 4.2vw, 58px);
-    line-height: .98;
-    font-weight: 800;
-    letter-spacing: -2.2px;
-}
-
-.nosotros-bloque-titulo {
-    margin: 0 0 30px;
-    padding-left: 20px;
-    border-left: 4px solid #ffc400;
-}
-
-.nosotros-bloque-titulo strong {
-    display: block;
-    max-width: 560px;
-    color: #151719;
-    font-family: "Manrope", sans-serif;
-    font-size: clamp(25px, 2.4vw, 34px);
-    line-height: 1.12;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-@media (max-width: 700px) {
-    .nosotros-titulo {
-        margin-bottom: 30px;
-    }
-
-    .nosotros-titulo h2 {
-        font-size: 38px;
-        letter-spacing: -1.5px;
-    }
-
-    .nosotros-bloque-titulo {
-        padding-left: 15px;
-        margin-bottom: 24px;
-    }
-
-    .nosotros-bloque-titulo strong {
-        font-size: 25px;
-    }
-}
-  </style>
-  <style>
-   /* =========================================================
-   NOSOTROS V4 — EYEBROW AMARILLO
-========================================================= */
-
-.nosotros-titulo-principal {
-    display: flex;
-    align-items: center;
-    margin: 0 0 34px;
-}
-
-.nosotros-titulo-principal .nosotros-acento {
-    display: none;
-}
-
-.nosotros-titulo-principal h2 {
-    margin: 0;
-    color: #ffc400;
-    font-family: "Manrope", sans-serif;
-    font-size: 15px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.nosotros-bloque-titulo {
-    margin: 0 0 30px;
-    padding-left: 20px;
-    border-left: 4px solid #ffc400;
-}
-
-.nosotros-bloque-titulo strong {
-    display: block;
-    max-width: 570px;
-    color: #151719;
-    font-family: "Manrope", sans-serif;
-    font-size: clamp(25px, 2.35vw, 34px);
-    line-height: 1.12;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-
-/* Evita que quede el antiguo encabezado pequeño */
-.nosotros > .contenedor > .titulo-seccion {
-    display: none !important;
-}
-
-@media (max-width: 700px) {
-    .nosotros-titulo-principal {
-        margin-bottom: 27px;
-    }
-
-    .nosotros-titulo-principal h2 {
-        font-size: 13px;
-        letter-spacing: 2.5px;
-    }
-
-    .nosotros-bloque-titulo {
-        padding-left: 15px;
-        margin-bottom: 24px;
-    }
-
-    .nosotros-bloque-titulo strong {
-        font-size: 25px;
-    }
-}
-  </style>
  </head>
  <body>
   <!-- ==============================
@@ -163,7 +40,7 @@
    <div class="header-contenedor contenedor">
     <!-- MARCA -->
     <a class="marca" href="#inicio">
-     <img alt="Exostos Amaya M&amp;M" class="marca-logo" src="img/Logo.png"/>
+     <img alt="Exostos Amaya M&amp;M" class="marca-logo" src="img/Logo.webp"/>
      <div class="marca-texto">
       <strong>
        EXOSTOS AMAYA M&amp;M
@@ -225,7 +102,7 @@
        <a class="boton boton-amarillo" href="#servicios">
         Conoce nuestros servicios
        </a>
-       <a class="boton boton-contorno" href="https://wa.me/573105889062" target="_blank">
+       <a class="boton boton-contorno" href="https://wa.me/573105889062" target="_blank" rel="noopener noreferrer">
         Solicitar servicio
        </a>
       </div>
@@ -309,7 +186,7 @@
       </div>
       <!-- IMAGEN -->
       <div class="nosotros-imagen">
-       <img alt="Equipo de trabajo de Exostos Amaya M&amp;M" src="img/nosotros.png"/>
+       <img loading="lazy" decoding="async" alt="Equipo de trabajo de Exostos Amaya M&amp;M" src="img/nosotros.webp"/>
        <div class="nosotros-imagen-texto">
         <span>
          EXOSTOS AMAYA M&amp;M
@@ -349,7 +226,7 @@
 
         <div class="identidad-media identidad-media-derecha">
             <span class="identidad-media-marco"></span>
-            <img src="img/mision.png" alt="Tecnología para el control de emisiones">
+            <img loading="lazy" decoding="async" src="img/mision.webp" alt="Tecnología para el control de emisiones">
         </div>
 
     </article>
@@ -360,7 +237,7 @@
 
         <div class="identidad-media identidad-media-izquierda">
             <span class="identidad-media-marco"></span>
-            <img src="img/vision.png" alt="Soluciones para el sector transporte">
+            <img loading="lazy" decoding="async" src="img/vision.webp" alt="Soluciones para el sector transporte">
         </div>
 
         <div class="identidad-contenido">
@@ -528,7 +405,7 @@
       <!-- 01 -->
       <article class="servicio-card" data-number="01">
        <div class="servicio-imagen">
-        <img alt="Regeneración de DPF" src="img/servicio-dpf.png"/>
+        <img loading="lazy" decoding="async" alt="Regeneración de DPF" src="img/servicio-dpf.webp"/>
         <span class="servicio-numero">
          01
         </span>
@@ -549,7 +426,7 @@
       <!-- 02 -->
       <article class="servicio-card" data-number="02">
        <div class="servicio-imagen">
-        <img alt="Regeneración de catalizadores" src="img/servicio-catalizador.png"/>
+        <img loading="lazy" decoding="async" alt="Regeneración de catalizadores" src="img/servicio-catalizador.webp"/>
         <span class="servicio-numero">
          02
         </span>
@@ -570,7 +447,7 @@
       <!-- 03 -->
       <article class="servicio-card" data-number="03">
        <div class="servicio-imagen">
-        <img alt="Limpieza y descontaminación" src="img/servicio-limpieza.png"/>
+        <img loading="lazy" decoding="async" alt="Mantenimiento de tanques de combustible" src="img/servicio-limpieza.webp"/>
         <span class="servicio-numero">
          03
         </span>
@@ -589,7 +466,7 @@
       <!-- 04 -->
       <article class="servicio-card" data-number="04">
        <div class="servicio-imagen">
-        <img alt="Sustitución de cerámica" src="img/servicio-ceramica.png"/>
+        <img loading="lazy" decoding="async" alt="Sustitución de cerámica" src="img/servicio-ceramica.webp"/>
         <span class="servicio-numero">
          04
         </span>
@@ -609,7 +486,7 @@
       <!-- 05 -->
       <article class="servicio-card" data-number="05">
        <div class="servicio-imagen">
-        <img alt="Piezas de intercambio" src="img/servicio-intercambio.png"/>
+        <img loading="lazy" decoding="async" alt="Piezas de intercambio" src="img/servicio-intercambio.webp"/>
         <span class="servicio-numero">
          05
         </span>
@@ -629,7 +506,7 @@
       <!-- 06 -->
       <article class="servicio-card" data-number="06">
        <div class="servicio-imagen">
-        <img alt="Mantenimiento de exostos" src="img/servicio-exostos.png"/>
+        <img loading="lazy" decoding="async" alt="Mantenimiento de exostos" src="img/servicio-exostos.webp"/>
         <span class="servicio-numero">
          06
         </span>
@@ -742,18 +619,10 @@
 
         <div class="tecnologia-imagen">
     <div class="imagen-deslizante">
-        <img
-            src="img/tecnologia.png"
+        <img loading="lazy" decoding="async"
+            src="img/tecnologia.webp"
             alt="Tecnología para regeneración de DPF"
         >
-
-        <button class="flecha-imagen arriba" type="button" onclick="moverImagen(-1)">
-            ↑
-        </button>
-
-        <button class="flecha-imagen abajo" type="button" onclick="moverImagen(1)">
-            ↓
-        </button>
     </div>
 </div>
 
@@ -785,14 +654,14 @@
             <div class="comparador">
 
                 <div class="comparador-despues">
-                    <img
-                        src="img/despues.png"
+                    <img loading="lazy" decoding="async"
+                        src="img/despues.webp"
                         alt="Después de la intervención">
                 </div>
 
                 <div class="comparador-antes">
-                    <img
-                        src="img/antes.png"
+                    <img loading="lazy" decoding="async"
+                        src="img/antes.webp"
                         alt="Antes de la intervención">
                 </div>
 
@@ -820,14 +689,14 @@
             <div class="comparador">
 
                 <div class="comparador-despues">
-                    <img
-                        src="img/despues-2.png"
+                    <img loading="lazy" decoding="async"
+                        src="img/despues-2.webp"
                         alt="Después de la intervención">
                 </div>
 
                 <div class="comparador-antes">
-                    <img
-                        src="img/antes-2.png"
+                    <img loading="lazy" decoding="async"
+                        src="img/antes-2.webp"
                         alt="Antes de la intervención">
                 </div>
 
@@ -873,9 +742,8 @@
         </p>
        </div>
        <div class="flotas-grid">
-        <!-- 01 -->
-        <article class="flota-card">
-         <img alt="Maquinaria pesada y construcción" src="img/flota-intermunicipal.png"/>
+                <article class="flota-card">
+         <img loading="lazy" decoding="async" alt="Transporte intermunicipal" src="img/flota-intermunicipal.webp"/>
          <div class="flota-overlay">
          </div>
          <div class="flota-contenido">
@@ -889,14 +757,13 @@
           </span>
          </div>
         </article>
-        <!-- 03 -->
-        <article class="flota-card">
-         <img alt="Vehículos de emergencia" src="img/flota-emergencia.png"/>
+                <article class="flota-card">
+         <img loading="lazy" decoding="async" alt="Vehículos de emergencia" src="img/flota-emergencia.webp"/>
          <div class="flota-overlay">
          </div>
          <div class="flota-contenido">
           <span class="flota-numero">
-           03
+           02
           </span>
           <h3>
            Vehículos de emergencia
@@ -905,14 +772,13 @@
           </span>
          </div>
         </article>
-        <!-- 04 -->
-        <article class="flota-card">
-         <img alt="Taxis y vehículos de servicio privado" src="img/flota-taxis.png"/>
+                <article class="flota-card">
+         <img loading="lazy" decoding="async" alt="Taxis y vehículos de servicio privado" src="img/flota-taxis.webp"/>
          <div class="flota-overlay">
          </div>
          <div class="flota-contenido">
           <span class="flota-numero">
-           04
+           03
           </span>
           <h3>
            Flotas de taxis y servicios privados
@@ -921,14 +787,13 @@
           </span>
          </div>
         </article>
-        <!-- 05 -->
-        <article class="flota-card">
-         <img alt="Vehículos de servicios urbanos y aseo" src="img/flota-aseo.png"/>
+                <article class="flota-card">
+         <img loading="lazy" decoding="async" alt="Vehículos de servicios urbanos y aseo" src="img/flota-aseo.webp"/>
          <div class="flota-overlay">
          </div>
          <div class="flota-contenido">
           <span class="flota-numero">
-           05
+           04
           </span>
           <h3>
            Servicios urbanos y aseo
@@ -937,14 +802,13 @@
           </span>
          </div>
         </article>
-        <!-- 06 -->
-        <article class="flota-card">
-         <img alt="Logística y transporte de carga" src="img/flota-carga.png"/>
+                <article class="flota-card">
+         <img loading="lazy" decoding="async" alt="Logística y transporte de carga" src="img/flota-carga.webp"/>
          <div class="flota-overlay">
          </div>
          <div class="flota-contenido">
           <span class="flota-numero">
-           06
+           05
           </span>
           <h3>
            Logística y transporte de carga
@@ -953,23 +817,21 @@
           </span>
          </div>
         </article>
-        <!-- 07 -->
-        <article class="flota-card">
-         <img alt="Maquinaria ytransporte publico" src="img/flota-agricola.jpeg"/>
+                <article class="flota-card">
+         <img loading="lazy" decoding="async" alt="Transporte público" src="img/flota-agricola.webp"/>
          <div class="flota-overlay">
          </div>
          <div class="flota-contenido">
           <span class="flota-numero">
-           07
+           06
           </span>
           <h3>
-           Transporte publico
+           Transporte público
           </h3>
           <span class="flota-linea">
           </span>
          </div>
         </article>
-        <!-- 08 -->
        </div>
       </div>
      </section>
@@ -990,43 +852,43 @@
        <div class="clientes-lista">
 
         <div class="cliente-logo">
-         <img src="img/transmilenio.png" alt="TransMilenio">
+         <img loading="lazy" decoding="async" src="img/transmilenio.png" alt="TransMilenio">
         </div>
 
         <div class="cliente-logo">
-         <img src="img/sitp.png" alt="SITP">
+         <img loading="lazy" decoding="async" src="img/sitp.png" alt="SITP">
         </div>
 
         <div class="cliente-logo">
-         <img src="img/consorcio-express.png" alt="Consorcio Express">
+         <img loading="lazy" decoding="async" src="img/consorcio-express.png" alt="Consorcio Express">
         </div>
 
         <div class="cliente-logo">
-         <img src="img/etib.png" alt="ETIB">
+         <img loading="lazy" decoding="async" src="img/etib.webp" alt="ETIB">
         </div>
 
         <div class="cliente-logo">
-         <img src="img/rayo-gas.png" alt="Rayo Gas">
+         <img loading="lazy" decoding="async" src="img/rayo-gas.png" alt="Rayo Gas">
         </div>
 
         <div class="cliente-logo">
-         <img src="img/suma.png" alt="SUMA">
+         <img loading="lazy" decoding="async" src="img/suma.png" alt="SUMA">
         </div>
 
         <div class="cliente-logo">
-         <img src="img/e-masivo.png" alt="E Masivo">
+         <img loading="lazy" decoding="async" src="img/e-masivo.webp" alt="E Masivo">
         </div>
 
                 <div class="cliente-logo">
-         <img src="img/centro.png" alt="Rayo Gas">
+         <img loading="lazy" decoding="async" src="img/centro.png" alt="Centro Diesel">
         </div>
 
         <div class="cliente-logo">
-         <img src="img/limpia.png" alt="SUMA">
+         <img loading="lazy" decoding="async" src="img/limpia.png" alt="Ciudad Limpia">
         </div>
 
         <div class="cliente-logo">
-         <img src="img/gran.jpg" alt="E Masivo">
+         <img loading="lazy" decoding="async" src="img/gran.jpg" alt="Gran Américas Usme">
         </div>
 
 
@@ -1065,14 +927,14 @@
            Teléfono
           </strong>
           <br/>
-          +57 310 588 9062
+          <a class="contacto-enlace" href="tel:+573105889062">+57 310 588 9062</a>
          </p>
          <p>
           <strong>
            Correo
           </strong>
           <br/>
-          exostosamayamym@gmail.com
+          <a class="contacto-enlace" href="mailto:exostosamayamym@gmail.com">exostosamayamym@gmail.com</a>
          </p>
          <p>
           <strong>
@@ -1086,12 +948,13 @@
                             8:00 a.m. – 1:00 p.m.
          </p>
         </div>
-        <a class="boton boton-amarillo" href="https://wa.me/573105889062" target="_blank">
+        <a class="boton boton-amarillo" href="https://wa.me/573105889062" target="_blank" rel="noopener noreferrer">
          Hablar por WhatsApp
         </a>
        </div>
        <div class="mapa">
     <iframe
+        title="Ubicación de Exostos Amaya M&amp;M en Google Maps"
         src="https://www.google.com/maps?q=Cra.%2078A%20%2365A-59%20Sur,%20Bosa,%20Bogotá&output=embed"
         width="100%"
         height="100%"
@@ -1110,7 +973,6 @@
          </p>
         </div>
        </div>
-      </div>
      </section>
   </main>
   <!-- ==============================
@@ -1218,238 +1080,6 @@
 </a>
 
 <script src="js/script.js"></script>
-
- <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const botonAsistente = document.getElementById("boton-asistente");
-    const panelAsistente = document.getElementById("panel-asistente");
-    const cerrarAsistente = document.getElementById("cerrar-asistente");
-    const respuesta = document.getElementById("asistente-respuesta");
-
-    if (!botonAsistente || !panelAsistente) {
-        console.log("❌ No se encontró el asistente");
-        return;
-    }
-
-    console.log("✅ Asistente cargado correctamente");
-
-    const respuestas = {
-        ubicacion: `
-            <strong>📍 Estamos ubicados en:</strong>
-            <p>Cra. 78A #65A-59 Sur, Bosa, Bogotá D.C.</p>
-        `,
-
-        contacto: `
-            <strong>📞 ¿Cómo puedes contactarnos?</strong>
-            <p>WhatsApp: <strong>+57 310 588 9062</strong></p>
-            <p>Correo: <strong>exostosamayamym@gmail.com</strong></p>
-        `,
-
-        flotas: `
-            <strong>🚛 Trabajamos con diferentes tipos de flota.</strong>
-            <p>
-                Transporte intermunicipal,
-                vehículos de emergencia, taxis, servicios privados,
-                aseo, carga, transporte público.
-            </p>
-        `,
-
-        servicios: `
-            <strong>🔧 Nuestros servicios</strong>
-            <p>
-                Regeneración de DPF, regeneración y limpieza de catalizadores,
-                limpieza y descontaminación, sustitución de cerámica,
-                piezas de intercambio ,mantenimiento de exostos y mantenimiento
-                de tanques de combustible.
-            </p>
-        `,
-
-        horarios: `
-            <strong>🕐 Horarios de atención</strong>
-            <p>
-                Lunes a viernes: <strong>8:00 a.m. – 5:00 p.m.</strong><br>
-                Sábados: <strong>8:00 a.m. – 1:00 p.m.</strong>
-            </p>
-        `,
-
-        empresa: `
-            <strong>🏢 EXOSTOS AMAYA M&M</strong>
-            <p>
-                Somos una empresa colombiana con más de 15 años de experiencia,
-                especializada en soluciones técnicas para sistemas de escape
-                y control de emisiones.
-            </p>
-        `
-    };
-
-    // ABRIR ROBOT
-    botonAsistente.addEventListener("click", function (evento) {
-
-        evento.stopPropagation();
-
-        const estaAbierto =
-            panelAsistente.classList.contains("abierto");
-
-        if (estaAbierto) {
-
-            panelAsistente.classList.remove("abierto");
-            panelAsistente.setAttribute("aria-hidden", "true");
-            botonAsistente.setAttribute("aria-expanded", "false");
-
-        } else {
-
-            panelAsistente.classList.add("abierto");
-            panelAsistente.setAttribute("aria-hidden", "false");
-            botonAsistente.setAttribute("aria-expanded", "true");
-
-        }
-
-    });
-
-    // CERRAR
-    if (cerrarAsistente) {
-
-        cerrarAsistente.addEventListener("click", function (evento) {
-
-            evento.stopPropagation();
-
-            panelAsistente.classList.remove("abierto");
-            panelAsistente.setAttribute("aria-hidden", "true");
-            botonAsistente.setAttribute("aria-expanded", "false");
-
-        });
-
-    }
-
-    // PREGUNTAS
-    document.querySelectorAll(".asistente-preguntas button").forEach(function (boton) {
-
-        boton.addEventListener("click", function () {
-
-            const pregunta = boton.dataset.pregunta;
-
-            if (!respuestas[pregunta] || !respuesta) {
-                return;
-            }
-
-            respuesta.innerHTML = respuestas[pregunta];
-            respuesta.hidden = false;
-
-        });
-
-    });
-
-});
-</script>
-<!-- =====================================================
-     TECNOLOGÍA — ACORDEÓN
-===================================================== -->
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const pasosTecnologia =
-        document.querySelectorAll(".tecnologia-paso");
-
-    pasosTecnologia.forEach(function (paso) {
-
-        paso.addEventListener("click", function (event) {
-
-            event.preventDefault();
-
-            const estabaAbierto =
-                paso.classList.contains("activo");
-
-
-            // CERRAR TODOS
-            pasosTecnologia.forEach(function (item) {
-
-                item.classList.remove("activo");
-
-                const texto =
-                    item.querySelector(".tecnologia-descripcion");
-
-                if (texto) {
-
-                    texto.style.maxHeight = "0px";
-                    texto.style.opacity = "0";
-                    texto.style.visibility = "hidden";
-                    texto.style.marginTop = "0px";
-                }
-
-            });
-
-
-            // ABRIR EL SELECCIONADO
-            if (!estabaAbierto) {
-
-                paso.classList.add("activo");
-
-                const descripcion =
-                    paso.querySelector(".tecnologia-descripcion");
-
-                if (descripcion) {
-
-                    descripcion.style.maxHeight =
-                        descripcion.scrollHeight + "px";
-
-                    descripcion.style.opacity = "1";
-                    descripcion.style.visibility = "visible";
-                    descripcion.style.marginTop = "18px";
-                }
-
-            }
-
-        });
-
-    });
-
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const botonSubir = document.getElementById("boton-subir");
-
-    if (!botonSubir) {
-        console.log("❌ No existe el botón volver arriba");
-        return;
-    }
-
-    function controlarBotonSubir() {
-
-        if (window.scrollY > 500) {
-
-            botonSubir.classList.add("visible");
-
-        } else {
-
-            botonSubir.classList.remove("visible");
-
-        }
-
-    }
-
-    window.addEventListener(
-        "scroll",
-        controlarBotonSubir,
-        { passive: true }
-    );
-
-    botonSubir.addEventListener("click", function () {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    });
-
-    controlarBotonSubir();
-
-});
-</script>
 
 </body>
 </html>

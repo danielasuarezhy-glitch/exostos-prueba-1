@@ -1,9 +1,9 @@
 // =========================================================
 // EXOSTOS AMAYA M&M — INTERACCIONES
+// Todo el JavaScript de la página está en este archivo.
 // =========================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-
 
     // =====================================================
     // MENÚ MÓVIL
@@ -14,929 +14,509 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (botonMenu && menu) {
 
+        const cerrarMenu = () => {
+            menu.classList.remove("menu-abierto");
+            botonMenu.textContent = "☰";
+            botonMenu.setAttribute("aria-label", "Abrir menú");
+            botonMenu.setAttribute("aria-expanded", "false");
+        };
+
+        botonMenu.setAttribute("aria-expanded", "false");
+
         botonMenu.addEventListener("click", () => {
-
             const abierto = menu.classList.toggle("menu-abierto");
-
             botonMenu.textContent = abierto ? "✕" : "☰";
-
-            botonMenu.setAttribute(
-                "aria-label",
-                abierto ? "Cerrar menú" : "Abrir menú"
-            );
-
+            botonMenu.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
+            botonMenu.setAttribute("aria-expanded", String(abierto));
         });
-
 
         menu.querySelectorAll("a").forEach((enlace) => {
-
-            enlace.addEventListener("click", () => {
-
-                menu.classList.remove("menu-abierto");
-
-                botonMenu.textContent = "☰";
-
-                botonMenu.setAttribute(
-                    "aria-label",
-                    "Abrir menú"
-                );
-
-            });
-
+            enlace.addEventListener("click", cerrarMenu);
         });
 
     }
 
 
-
-// =========================================================
-// COMPARADOR ANTES / DESPUÉS
-// VERSIÓN CORREGIDA
-// =========================================================
-
-const comparadores = document.querySelectorAll(".comparador");
-
-comparadores.forEach((comparador) => {
-
-    const antes = comparador.querySelector(".comparador-antes");
-    const linea = comparador.querySelector(".comparador-linea");
-    const imagenAntes = comparador.querySelector(".comparador-antes img");
-
-    if (!antes || !linea || !imagenAntes) {
-        return;
-    }
-
     // =====================================================
-    // ASEGURAR QUE LA IMAGEN ANTES TENGA EL MISMO TAMAÑO
-    // QUE TODO EL COMPARADOR
+    // COMPARADOR ANTES / DESPUÉS
     // =====================================================
 
-    function ajustarImagenAntes() {
+    const comparadores = document.querySelectorAll(".comparador");
 
-        const rect = comparador.getBoundingClientRect();
+    comparadores.forEach((comparador) => {
 
-        if (!rect.width || !rect.height) {
+        const antes = comparador.querySelector(".comparador-antes");
+        const linea = comparador.querySelector(".comparador-linea");
+        const imagenAntes = comparador.querySelector(".comparador-antes img");
+
+        if (!antes || !linea || !imagenAntes) {
             return;
         }
 
-        antes.style.width = "100%";
-        antes.style.height = "100%";
+        // =====================================================
+        // ASEGURAR QUE LA IMAGEN ANTES TENGA EL MISMO TAMAÑO
+        // QUE TODO EL COMPARADOR
+        // =====================================================
 
-        imagenAntes.style.position = "absolute";
-        imagenAntes.style.left = "0";
-        imagenAntes.style.top = "0";
-        imagenAntes.style.width = "100%";
-        imagenAntes.style.height = "100%";
-        imagenAntes.style.maxWidth = "none";
-        imagenAntes.style.objectFit = "cover";
-        imagenAntes.style.objectPosition = "center";
-        imagenAntes.style.display = "block";
-    }
+        function ajustarImagenAntes() {
 
+            const rect = comparador.getBoundingClientRect();
 
-    // =====================================================
-    // MOVER COMPARADOR
-    // =====================================================
+            if (!rect.width || !rect.height) {
+                return;
+            }
 
-    function moverComparador(posicionX) {
+            antes.style.width = "100%";
+            antes.style.height = "100%";
 
-        const rect = comparador.getBoundingClientRect();
-
-        if (!rect.width) {
-            return;
+            imagenAntes.style.position = "absolute";
+            imagenAntes.style.left = "0";
+            imagenAntes.style.top = "0";
+            imagenAntes.style.width = "100%";
+            imagenAntes.style.height = "100%";
+            imagenAntes.style.maxWidth = "none";
+            imagenAntes.style.objectFit = "cover";
+            imagenAntes.style.objectPosition = "center";
+            imagenAntes.style.display = "block";
         }
 
-        let porcentaje =
-            ((posicionX - rect.left) / rect.width) * 100;
 
-        porcentaje = Math.max(
-            2,
-            Math.min(98, porcentaje)
+        // =====================================================
+        // MOVER COMPARADOR
+        // =====================================================
+
+        function moverComparador(posicionX) {
+
+            const rect = comparador.getBoundingClientRect();
+
+            if (!rect.width) {
+                return;
+            }
+
+            let porcentaje =
+                ((posicionX - rect.left) / rect.width) * 100;
+
+            porcentaje = Math.max(
+                2,
+                Math.min(98, porcentaje)
+            );
+
+            // La imagen ANTES ocupa todo el comparador.
+            // Solo se modifica el recorte visible.
+            antes.style.clipPath =
+                `inset(0 ${100 - porcentaje}% 0 0)`;
+
+            // Mover línea y botón.
+            linea.style.left = porcentaje + "%";
+        }
+
+
+        // =====================================================
+        // POSICIÓN INICIAL
+        // =====================================================
+
+        ajustarImagenAntes();
+
+        antes.style.clipPath =
+            "inset(0 50% 0 0)";
+
+        linea.style.left = "50%";
+
+        window.addEventListener("resize", ajustarImagenAntes);
+
+
+        // =====================================================
+        // COMPUTADOR — MOUSE
+        // =====================================================
+
+        comparador.addEventListener(
+            "mousemove",
+            (evento) => {
+
+                moverComparador(evento.clientX);
+
+            }
         );
 
-        // La imagen ANTES ocupa todo el comparador.
-        // Solo se modifica el recorte visible.
-        antes.style.clipPath =
-            `inset(0 ${100 - porcentaje}% 0 0)`;
 
-        // Mover línea y botón.
-        linea.style.left = porcentaje + "%";
-    }
+        // =====================================================
+        // AL SALIR DEL COMPARADOR
+        // =====================================================
 
+        comparador.addEventListener(
+            "mouseleave",
+            () => {
 
-    // =====================================================
-    // POSICIÓN INICIAL
-    // =====================================================
+                antes.style.clipPath =
+                    "inset(0 50% 0 0)";
 
-    ajustarImagenAntes();
+                linea.style.left = "50%";
 
-    antes.style.clipPath =
-        "inset(0 50% 0 0)";
-
-    linea.style.left = "50%";
-
-    window.addEventListener("resize", ajustarImagenAntes);
-
-
-    // =====================================================
-    // COMPUTADOR — MOUSE
-    // =====================================================
-
-    comparador.addEventListener(
-        "mousemove",
-        (evento) => {
-
-            moverComparador(evento.clientX);
-
-        }
-    );
-
-
-    // =====================================================
-    // AL SALIR DEL COMPARADOR
-    // =====================================================
-
-    comparador.addEventListener(
-        "mouseleave",
-        () => {
-
-            antes.style.clipPath =
-                "inset(0 50% 0 0)";
-
-            linea.style.left = "50%";
-
-        }
-    );
-
-
-    // =====================================================
-    // CELULAR — GESTO HORIZONTAL
-    // =====================================================
-
-    let inicioX = 0;
-    let inicioY = 0;
-    let gestoHorizontal = false;
-
-
-    comparador.addEventListener(
-        "touchstart",
-        (evento) => {
-
-            if (
-                !evento.touches ||
-                evento.touches.length === 0
-            ) {
-                return;
             }
-
-            inicioX = evento.touches[0].clientX;
-            inicioY = evento.touches[0].clientY;
-            gestoHorizontal = false;
-
-        },
-        {
-            passive: true
-        }
-    );
+        );
 
 
-    comparador.addEventListener(
-        "touchmove",
-        (evento) => {
+        // =====================================================
+        // CELULAR — GESTO HORIZONTAL
+        // =====================================================
 
-            if (
-                !evento.touches ||
-                evento.touches.length === 0
-            ) {
-                return;
-            }
+        let inicioX = 0;
+        let inicioY = 0;
+        let gestoHorizontal = false;
 
-            const actualX = evento.touches[0].clientX;
-            const actualY = evento.touches[0].clientY;
 
-            const diferenciaX =
-                Math.abs(actualX - inicioX);
-
-            const diferenciaY =
-                Math.abs(actualY - inicioY);
-
-            if (!gestoHorizontal) {
+        comparador.addEventListener(
+            "touchstart",
+            (evento) => {
 
                 if (
-                    diferenciaX > 10 &&
-                    diferenciaX > diferenciaY
+                    !evento.touches ||
+                    evento.touches.length === 0
                 ) {
-
-                    gestoHorizontal = true;
-
-                } else {
-
                     return;
-
                 }
+
+                inicioX = evento.touches[0].clientX;
+                inicioY = evento.touches[0].clientY;
+                gestoHorizontal = false;
+
+            },
+            {
+                passive: true
             }
-
-            moverComparador(actualX);
-
-        },
-        {
-            passive: true
-        }
-    );
+        );
 
 
-    comparador.addEventListener(
-        "touchend",
-        () => {
+        comparador.addEventListener(
+            "touchmove",
+            (evento) => {
 
-            gestoHorizontal = false;
+                if (
+                    !evento.touches ||
+                    evento.touches.length === 0
+                ) {
+                    return;
+                }
 
-        },
-        {
-            passive: true
-        }
-    );
+                const actualX = evento.touches[0].clientX;
+                const actualY = evento.touches[0].clientY;
+
+                const diferenciaX =
+                    Math.abs(actualX - inicioX);
+
+                const diferenciaY =
+                    Math.abs(actualY - inicioY);
+
+                if (!gestoHorizontal) {
+
+                    if (
+                        diferenciaX > 10 &&
+                        diferenciaX > diferenciaY
+                    ) {
+
+                        gestoHorizontal = true;
+
+                    } else {
+
+                        return;
+
+                    }
+                }
+
+                moverComparador(actualX);
+
+            },
+            {
+                passive: true
+            }
+        );
 
 
-    comparador.addEventListener(
-        "touchcancel",
-        () => {
+        comparador.addEventListener(
+            "touchend",
+            () => {
 
-            gestoHorizontal = false;
+                gestoHorizontal = false;
 
-        },
-        {
-            passive: true
-        }
-    );
+            },
+            {
+                passive: true
+            }
+        );
 
-});
+
+        comparador.addEventListener(
+            "touchcancel",
+            () => {
+
+                gestoHorizontal = false;
+
+            },
+            {
+                passive: true
+            }
+        );
+
+    });
+
 
     // =====================================================
     // ANIMACIONES AL HACER SCROLL
     // =====================================================
 
-    const elementosAnimados =
-        document.querySelectorAll(
-            ".servicio-card, " +
-            ".paso, " +
-            ".cifra, " +
-            ".identidad-card, " +
-            ".flota-card, " +
-            ".cliente-logo"
-        );
-
+    const elementosAnimados = document.querySelectorAll(
+        ".servicio-card, .cifra, .flota-card, .cliente-logo"
+    );
 
     if ("IntersectionObserver" in window) {
 
-        const observador =
-            new IntersectionObserver(
-                (entradas) => {
-
-                    entradas.forEach((entrada) => {
-
-                        if (entrada.isIntersecting) {
-
-                            entrada.target.classList.add(
-                                "visible"
-                            );
-
-
-                            observador.unobserve(
-                                entrada.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.12
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach((entrada) => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add("visible");
+                    observador.unobserve(entrada.target);
                 }
-            );
+            });
+        }, { threshold: 0.12 });
 
-
-        elementosAnimados.forEach((elemento) => {
-
-            observador.observe(elemento);
-
-        });
+        elementosAnimados.forEach((elemento) => observador.observe(elemento));
 
     } else {
 
-        elementosAnimados.forEach((elemento) => {
-
-            elemento.classList.add("visible");
-
-        });
+        elementosAnimados.forEach((elemento) => elemento.classList.add("visible"));
 
     }
-
 
 
     // =====================================================
     // ACORDEÓN DE VALORES
     // =====================================================
 
-    const valores =
-        document.querySelectorAll(".valor-nuevo");
-
+    const valores = document.querySelectorAll(".valor-nuevo");
 
     valores.forEach((valor) => {
 
-        valor.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+        valor.setAttribute("aria-expanded", "false");
 
+        valor.addEventListener("click", () => {
 
-        valor.addEventListener(
-            "click",
-            () => {
+            const estabaAbierto = valor.classList.contains("activo");
 
-                const estabaAbierto =
-                    valor.classList.contains("activo");
+            valores.forEach((item) => {
+                item.classList.remove("activo");
+                item.setAttribute("aria-expanded", "false");
+            });
 
-
-                // Cerrar todos
-
-                valores.forEach((item) => {
-
-                    item.classList.remove("activo");
-
-                    item.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                });
-
-
-                // Abrir el seleccionado
-
-                if (!estabaAbierto) {
-
-                    valor.classList.add("activo");
-
-                    valor.setAttribute(
-                        "aria-expanded",
-                        "true"
-                    );
-
-                }
-
+            if (!estabaAbierto) {
+                valor.classList.add("activo");
+                valor.setAttribute("aria-expanded", "true");
             }
-        );
+
+        });
 
     });
-
 
 
     // =====================================================
     // ACORDEÓN DE TECNOLOGÍA
+    // (antes había 3 copias de este código peleando entre sí)
     // =====================================================
 
-    const pasosTecnologia =
-        document.querySelectorAll(".tecnologia-paso");
+    const pasosTecnologia = document.querySelectorAll(".tecnologia-paso");
 
+    function cerrarPaso(paso) {
+        paso.classList.remove("activo");
+        paso.setAttribute("aria-expanded", "false");
+        const texto = paso.querySelector(".tecnologia-descripcion");
+        if (texto) {
+            texto.style.maxHeight = "0px";
+            texto.style.opacity = "0";
+            texto.style.visibility = "hidden";
+            texto.style.marginTop = "0px";
+        }
+    }
+
+    function abrirPaso(paso) {
+        paso.classList.add("activo");
+        paso.setAttribute("aria-expanded", "true");
+        const texto = paso.querySelector(".tecnologia-descripcion");
+        if (texto) {
+            texto.style.maxHeight = texto.scrollHeight + "px";
+            texto.style.opacity = "1";
+            texto.style.visibility = "visible";
+            texto.style.marginTop = "18px";
+        }
+    }
 
     pasosTecnologia.forEach((paso) => {
 
-        paso.addEventListener(
-            "click",
-            function () {
+        paso.setAttribute("aria-expanded", "false");
 
-                const estabaAbierto =
-                    paso.classList.contains("activo");
-
-
-                // Cerrar todas las tarjetas
-
-                pasosTecnologia.forEach((item) => {
-
-                    item.classList.remove("activo");
-
-                });
-
-
-                // Abrir la seleccionada
-
-                if (!estabaAbierto) {
-
-                    paso.classList.add("activo");
-
-                }
-
+        paso.addEventListener("click", (evento) => {
+            evento.preventDefault();
+            const estabaAbierto = paso.classList.contains("activo");
+            pasosTecnologia.forEach(cerrarPaso);
+            if (!estabaAbierto) {
+                abrirPaso(paso);
             }
-        );
+        });
 
     });
 
 
-
     // =====================================================
-    // CENTRO DE CONTACTO + ASISTENTE
+    // ASISTENTE VIRTUAL
     // =====================================================
 
-    const botonAsistente =
-        document.querySelector(
-            ".contacto-flotante .asistente"
-        );
-
-
-    const panelAsistente =
-        document.querySelector(
-            "#asistente-panel"
-        );
-
-
-    const botonCerrarAsistente =
-        document.querySelector(
-            ".asistente-cerrar"
-        );
-
-
-    const respuestaAsistente =
-        document.querySelector(
-            "#asistente-respuesta"
-        );
-
-
-
-    // =====================================================
-    // RESPUESTAS DEL ASISTENTE
-    // =====================================================
+    const botonAsistente = document.getElementById("boton-asistente");
+    const panelAsistente = document.getElementById("panel-asistente");
+    const cerrarAsistenteBtn = document.getElementById("cerrar-asistente");
+    const respuestaAsistente = document.getElementById("asistente-respuesta");
 
     const respuestas = {
-
         ubicacion: `
-            <strong>📍 Estamos en Bosa, Bogotá.</strong>
-
-            <p>
-                Cra. 78A #65A-59 Sur,
-                Bosa, Bogotá D.C.
-            </p>
-
-            <a
-                class="respuesta-enlace"
-                href="https://www.google.com/maps/search/?api=1&query=Cra.%2078A%20%2365A-59%20Sur%2C%20Bosa%2C%20Bogot%C3%A1"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Ver ubicación en Google Maps →
-            </a>
+            <strong>📍 Estamos ubicados en:</strong>
+            <p>Cra. 78A #65A-59 Sur, Bosa, Bogotá D.C.</p>
         `,
-
 
         contacto: `
-            <strong>
-                📞 Estamos disponibles por WhatsApp.
-            </strong>
-
-            <p>
-                WhatsApp / teléfono:
-                <strong>
-                    +57 310 588 9062
-                </strong>
-            </p>
-
-            <p>
-                Correo:
-                <strong>
-                    exostosamayamym@gmail.com
-                </strong>
-            </p>
-
-            <a
-                class="respuesta-enlace"
-                href="https://wa.me/573105889062?text=Hola%20EXOSTOS%20AMAYA%20M%26M.%20Quisiera%20recibir%20informaci%C3%B3n."
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Escribir por WhatsApp →
-            </a>
+            <strong>📞 ¿Cómo puedes contactarnos?</strong>
+            <p>WhatsApp: <strong>+57 310 588 9062</strong></p>
+            <p>Correo: <strong>exostosamayamym@gmail.com</strong></p>
         `,
-
 
         flotas: `
-            <strong>
-                🚛 Soluciones para diferentes operaciones.
-            </strong>
-
+            <strong>🚛 Trabajamos con diferentes tipos de flota.</strong>
             <p>
-                Trabajamos con transporte intermunicipal,
-                taxis y servicios privados,
-                vehículos de emergencia,
-                aseo, carga, construcción y maquinaria pesada,
-                sector agrícola y generadores.
+                Transporte intermunicipal,
+                vehículos de emergencia, taxis, servicios privados,
+                aseo, carga, transporte público.
             </p>
-
-            <a
-                class="respuesta-enlace"
-                href="#flotas"
-            >
-                Ver nuestras flotas →
-            </a>
         `,
-
 
         servicios: `
-            <strong>
-                🔧 Soluciones en control de emisiones.
-            </strong>
-
+            <strong>🔧 Nuestros servicios</strong>
             <p>
-                Entre nuestros servicios se encuentran
-                la regeneración de DPF,
-                regeneración y limpieza de catalizadores,
-                limpieza y descontaminación,
-                sustitución de cerámica,
-                piezas de intercambio y
-                mantenimiento de sistemas de escape.
+                Regeneración de DPF, regeneración de catalizadores,
+                mantenimiento de tanques de combustible, sustitución de cerámica,
+                piezas de intercambio y mantenimiento de exostos.
             </p>
-
-            <a
-                class="respuesta-enlace"
-                href="#servicios"
-            >
-                Ver servicios →
-            </a>
         `,
-
 
         horarios: `
-            <strong>
-                🕐 Horarios de atención
-            </strong>
-
+            <strong>🕐 Horarios de atención</strong>
             <p>
-                Lunes a viernes:
-                <strong>
-                    8:00 a.m. – 5:00 p.m.
-                </strong>
-                <br>
-
-                Sábados:
-                <strong>
-                    8:00 a.m. – 1:00 p.m.
-                </strong>
-            </p>
-
-            <p>
-                Fuera de este horario puedes
-                dejarnos un mensaje por WhatsApp.
+                Lunes a viernes: <strong>8:00 a.m. – 5:00 p.m.</strong><br>
+                Sábados: <strong>8:00 a.m. – 1:00 p.m.</strong>
             </p>
         `,
 
-
         empresa: `
-            <strong>
-                🏢 EXOSTOS AMAYA M&amp;M
-            </strong>
-
+            <strong>🏢 EXOSTOS AMAYA M&amp;M</strong>
             <p>
-                Somos una empresa especializada
-                en soluciones técnicas para sistemas
-                de escape y control de emisiones,
-                con experiencia en servicios para
-                diferentes tipos de vehículos y flotas.
+                Somos una empresa colombiana con más de 15 años de experiencia,
+                especializada en soluciones técnicas para sistemas de escape
+                y control de emisiones.
             </p>
-
-            <a
-                class="respuesta-enlace"
-                href="#nosotros"
-            >
-                Conocer más sobre nosotros →
-            </a>
         `
-
     };
 
-
-
-    // =====================================================
-    // FUNCIONES DEL ASISTENTE
-    // =====================================================
-
     function abrirAsistente() {
-
-        if (!panelAsistente || !botonAsistente) {
-            return;
-        }
-
-
         panelAsistente.classList.add("abierto");
-
-        panelAsistente.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
-
-        botonAsistente.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
+        panelAsistente.setAttribute("aria-hidden", "false");
+        botonAsistente.setAttribute("aria-expanded", "true");
     }
-
-
 
     function cerrarAsistente() {
-
-        if (!panelAsistente || !botonAsistente) {
-            return;
-        }
-
-
         panelAsistente.classList.remove("abierto");
-
-        panelAsistente.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-
-        botonAsistente.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
+        panelAsistente.setAttribute("aria-hidden", "true");
+        botonAsistente.setAttribute("aria-expanded", "false");
     }
 
+    if (botonAsistente && panelAsistente) {
 
-
-    // =====================================================
-    // BOTÓN DEL ASISTENTE
-    // =====================================================
-
-    if (botonAsistente) {
-
-        botonAsistente.addEventListener(
-            "click",
-            () => {
-
-                const abierto =
-                    panelAsistente &&
-                    panelAsistente.classList.contains(
-                        "abierto"
-                    );
-
-
-                if (abierto) {
-
-                    cerrarAsistente();
-
-                } else {
-
-                    abrirAsistente();
-
-                }
-
+        botonAsistente.addEventListener("click", (evento) => {
+            evento.stopPropagation();
+            if (panelAsistente.classList.contains("abierto")) {
+                cerrarAsistente();
+            } else {
+                abrirAsistente();
             }
-        );
-
-    }
-
-
-
-    // =====================================================
-    // BOTÓN CERRAR ASISTENTE
-    // =====================================================
-
-    if (botonCerrarAsistente) {
-
-        botonCerrarAsistente.addEventListener(
-            "click",
-            cerrarAsistente
-        );
-
-    }
-
-
-
-    // =====================================================
-    // BOTONES DE PREGUNTAS
-    // =====================================================
-
-    document
-        .querySelectorAll(".asistente-opciones button")
-        .forEach((boton) => {
-
-            boton.addEventListener(
-                "click",
-                () => {
-
-                    const pregunta =
-                        boton.dataset.pregunta;
-
-
-                    if (
-                        !respuestaAsistente ||
-                        !respuestas[pregunta]
-                    ) {
-                        return;
-                    }
-
-
-                    respuestaAsistente.innerHTML =
-                        respuestas[pregunta];
-
-
-                    respuestaAsistente.hidden =
-                        false;
-
-
-                    respuestaAsistente.classList.remove(
-                        "respuesta-entrada"
-                    );
-
-
-                    requestAnimationFrame(() => {
-
-                        respuestaAsistente.classList.add(
-                            "respuesta-entrada"
-                        );
-
-                    });
-
-                }
-            );
-
         });
 
-
-
-    // =====================================================
-    // CERRAR ASISTENTE CON ESC
-    // =====================================================
-
-    document.addEventListener(
-        "keydown",
-        (evento) => {
-
-            if (evento.key === "Escape") {
-
+        if (cerrarAsistenteBtn) {
+            cerrarAsistenteBtn.addEventListener("click", (evento) => {
+                evento.stopPropagation();
                 cerrarAsistente();
-
-            }
-
+            });
         }
-    );
 
+        document.querySelectorAll(".asistente-preguntas button").forEach((boton) => {
+            boton.addEventListener("click", () => {
+                const pregunta = boton.dataset.pregunta;
+                if (!respuestas[pregunta] || !respuestaAsistente) {
+                    return;
+                }
+                respuestaAsistente.innerHTML = respuestas[pregunta];
+                respuestaAsistente.hidden = false;
+            });
+        });
 
-
-    // =====================================================
-    // CERRAR ASISTENTE AL HACER CLICK AFUERA
-    // =====================================================
-
-    document.addEventListener(
-        "click",
-        (evento) => {
-
-            if (
-                !panelAsistente ||
-                !panelAsistente.classList.contains("abierto")
-            ) {
-                return;
+        // Cerrar con la tecla Esc
+        document.addEventListener("keydown", (evento) => {
+            if (evento.key === "Escape" && panelAsistente.classList.contains("abierto")) {
+                cerrarAsistente();
             }
+        });
 
-
+        // Cerrar al hacer clic por fuera del panel
+        document.addEventListener("click", (evento) => {
             if (
-                panelAsistente.contains(evento.target) ||
-                (
-                    botonAsistente &&
-                    botonAsistente.contains(evento.target)
-                )
+                panelAsistente.classList.contains("abierto") &&
+                !panelAsistente.contains(evento.target) &&
+                !botonAsistente.contains(evento.target)
             ) {
-                return;
+                cerrarAsistente();
             }
+        });
 
-
-            cerrarAsistente();
-
-        }
-    );
-
+    }
 
 
     // =====================================================
     // BOTÓN VOLVER ARRIBA
     // =====================================================
 
-    const botonSubir = document.querySelector(
-        ".boton-subir"
-    );
-
-
-    function actualizarBotonSubir() {
-
-        if (!botonSubir) {
-            return;
-        }
-
-        botonSubir.classList.toggle(
-            "visible",
-            window.scrollY > 500
-        );
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        actualizarBotonSubir,
-        {
-            passive: true
-        }
-    );
-
+    const botonSubir = document.getElementById("boton-subir");
 
     if (botonSubir) {
 
-        botonSubir.addEventListener(
-            "click",
-            () => {
+        const actualizarBotonSubir = () => {
+            botonSubir.classList.toggle("visible", window.scrollY > 500);
+        };
 
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
+        window.addEventListener("scroll", actualizarBotonSubir, { passive: true });
 
-            }
-        );
+        botonSubir.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        actualizarBotonSubir();
 
     }
 
 
-    actualizarBotonSubir();
-
-
-
     // =====================================================
-    // AÑO AUTOMÁTICO
+    // AÑO AUTOMÁTICO EN EL PIE DE PÁGINA
     // =====================================================
 
-    const footer =
-        document.querySelector(".footer");
-
-
-    if (footer) {
-
-        footer.innerHTML =
-            footer.innerHTML.replace(
+    document.querySelectorAll(".footer p").forEach((parrafo) => {
+        if (/©\s*\d{4}/.test(parrafo.textContent)) {
+            parrafo.textContent = parrafo.textContent.replace(
                 /©\s*\d{4}/,
                 "© " + new Date().getFullYear()
             );
-
-    }
-
-
-
-    // =====================================================
-    // ACORDEÓN DE TECNOLOGÍA — ÚNICO
-    // =====================================================
-
-    document
-        .querySelectorAll(".tecnologia-paso")
-        .forEach((paso) => {
-
-            paso.addEventListener(
-                "click",
-                function () {
-
-                    const estabaAbierto =
-                        this.classList.contains("activo");
-
-
-                    // Cerrar todos
-
-                    document
-                        .querySelectorAll(".tecnologia-paso")
-                        .forEach((item) => {
-
-                            item.classList.remove(
-                                "activo"
-                            );
-
-                        });
-
-
-                    // Abrir el seleccionado
-
-                    if (!estabaAbierto) {
-
-                        this.classList.add(
-                            "activo"
-                        );
-
-                    }
-
-                }
-            );
-
-        });
-
+        }
+    });
 
 });
