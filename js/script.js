@@ -406,8 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
         horarios: `
             <strong>🕐 Horarios de atención</strong>
             <p>
-                Lunes a viernes: <strong>8:00 a.m. – 5:00 p.m.</strong><br>
-                Sábados: <strong>8:00 a.m. – 1:00 p.m.</strong>
+                Lunes a sábado: <strong>7:00 a.m. – 5:00 p.m.</strong>
             </p>
         `,
 
